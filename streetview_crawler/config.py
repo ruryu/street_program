@@ -1,4 +1,15 @@
-API_KEY = "AIzaSyC20fpv_I0gAxcT4mt3pYGza5YE3Fp7W34"
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+API_KEY=os.getenv("GOOGLE_MAPS_API_KEY")
+
+if not API_KEY:
+    raise RuntimeError(
+        "GOOGLE_MAPS_API_KEY is not set. "
+        "COPY .env.example to .env and fill in your key:)"
+    )
 
 # BFS 最大節點數，避免跑太瘋
 MAX_NODES = 100
